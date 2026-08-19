@@ -1,0 +1,4 @@
+
+URL del Endpoint: Enlace activo de la Cloud Run Function o del frontend web alojado.
+
+https://8084-cs-799888913098-default.cs-us-east1-pkhd.cloudshell.dev/

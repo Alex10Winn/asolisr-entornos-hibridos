@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agente BigQuery</title>
+</head>
+<body>
+  <h1>Consulta al Agente</h1>
+  <!-- Caja de texto más grande -->
+  <textarea id="prompt" placeholder="Escribe tu consulta..." rows="6" cols="80"></textarea>
+  <br><br>
+  <!-- Botón para enviar la consulta -->
+  <button onclick="sendQuery()">Enviar</button>
+  <!-- Contenedor para mostrar la respuesta -->
+  <pre id="response"></pre>
+
+  <script>
+    async function sendQuery() {
+      const prompt = document.getElementById("prompt").value;
+      const res = await fetch("https://query-agent-1067810576345.us-central1.run.app", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt })
+      });
+      const data = await res.json();
+      document.getElementById("response").innerText = JSON.stringify(data.answer, null, 2);
+    }
+  </script>
+</body>
+</html>
